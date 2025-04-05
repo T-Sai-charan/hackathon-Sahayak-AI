@@ -1,45 +1,22 @@
-import requests
-import tkinter as tk
-from tkinter import messagebox
+import tkinter as tk 
+from tkinter import messagebox 
+root= tk.Tk()
+root.title("senior buddy app")
+root.geometry("300x200")
 
-def get_location():
-    try:
-        response = requests.get("https://ipinfo.io/json")
-        data = response.json()
-
-        ip = data.get("ip", "N/A")
-        city = data.get("city", "N/A")
-        region = data.get("region", "N/A")
-        country = data.get("country", "N/A")
-        loc = data.get("loc", "N/A")
-        org = data.get("org", "N/A")
-        timezone = data.get("timezone", "N/A")
-
-        result = f"""
-IP: {ip}
-City: {city}
-Region: {region}
-Country: {country}
-Coordinates: {loc}
-Organization: {org}
-"""
-        output_label.config(text=result)
-    except Exception as e:
-        messagebox.showerror("Error", f"Could not fetch location:\n{e}")
-
-# GUI setup
-root = tk.Tk()
-root.title("Auto Location Detector")
-root.geometry("1000x1000")
-root.config(padx=20, pady=20)
-
-title_label = tk.Label(root, text="Click to Detect Your Location", font=("Arial", 14))
-title_label.pack(pady=100)
-
-detect_button = tk.Button(root, text="Detect Location", command=get_location, font=("Arial", 12))
-detect_button.pack(pady=100)
-
-output_label = tk.Label(root, text="", justify="left", font=("Courier", 10))
-output_label.pack(pady=10)
-
-root.mainloop()
+def open_senior_page():
+    senior_window = tk.Toplevel(root)
+    senior_window.title("senior citizen")
+    senior_window.geometry("300x200")
+    tk.Label(senior_window, text="hello 👵👴", font=("Arial",14)).pack(pady=10)
+    tk.Button(senior_window, text="check in",  command=lambda:messagebox.showinfo("check in","checked in successfully!")).pack(pady=5)
+def open_guardian_page():
+    guardian_window= tk.Toplevel(root)
+    guardian_window.title("guardian")
+    guardian_window.geometry("300x200")
+    tk.Label(guardian_window, text="Guardian dashboard", font=("Arial",14)).pack(pady=10)
+    tk.Button(guardian_window, text="View Check-In Status",  command=lambda:messagebox.showinfo("Status","senior checked-In today")).pack(pady=5)
+tk.Label(root, text="Choose your side", font=("Arial",14)).pack(pady=10)
+tk.Button(root, text="I'm a Senior Citizen", command=open_senior_page,width=25).pack(pady=5)
+tk.Button(root, text="I'm a Guardian", command=open_guardian_page,width=25).pack(pady=5)
+root.mainloop()     
