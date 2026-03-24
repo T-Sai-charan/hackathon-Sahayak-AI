@@ -84,20 +84,20 @@ The project uses **something** for backend services (database, auth, serverless 
 
 ```
 project-root/
-|-- frontend/
-│   |-- index.html        # Landing page
-│   |-- login.html        # Login page
-│   |-- signup.html       # Signup page
-│   |-- dashboard.html    # User dashboard
-│   |-- styles.css        # Global styles
+├── frontend/
+│   ├── index.html        # Landing page
+│   ├── login.html        # Login page
+│   ├── signup.html       # Signup page
+│   ├── dashboard.html    # User dashboard
+│   ├── styles.css        # Global styles
 │   └── script.js         # Frontend logic
 |
-|-- backend/
-│   |-- server.js         # Main server entry point
-│   |-- routes/           # API route definitions
+├── backend/
+│   ├── server.js         # Main server entry point
+│   ├── routes/           # API route definitions
 │   └── controllers/      # Business logic
 |
-|-- .env                  # Environment variables (API keys, configs)
+├── .env                  # Environment variables (API keys, configs)
 |
 └── README.md             
 ```
